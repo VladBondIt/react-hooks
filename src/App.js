@@ -1,23 +1,42 @@
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 
+// Хуки юзаються только из функцианальных компонентов,
+// в классовых компонентах хуки вызывают ошибку, также хуки нельзя помещать в циклы, условия
+// и вложенные функции.
 function App() {
+  // useState возвращает массив, деструктуризируем объектб setCount кастомная функция
+  // которая изменяет стейт
+  const [count, setCount] = useState(0);
+  const [data, refreshData] = useState([{ name: 'Ivan', sex: 'male' }]);
+
+  useEffect(() => {
+    // console.log(parseInt(Math.random() * 120));
+    // console.log(data);
+    // updateChar();
+    // // Имитация решения проблемы утечки памяти, когда контент скрывается,
+    // // а интервал продолжает забивать память.
+    // let timerId = setInterval(updateChar, 5000)
+    // return () => {
+    //   clearInterval(timerId)
+    // }
+  })
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Hello friends!</h1>
+      <p>Вы кликнули {count} раз</p>
+      <button
+        onClick={() => setCount(count + 1)}>Кликни меня</button>
+      {data.map(item => {
+        return (
+          <div>Name: {item.name}, sex: {item.sex}</div>
+        )
+      })}
+      <button
+        onClick={() => refreshData(data => ([...data, { name: 'Alex', sex: 'male' }]))} >
+        Добавить данные
+      </button>
     </div>
   );
 }
