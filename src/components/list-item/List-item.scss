@@ -1,0 +1,29 @@
+.list {
+    font-size: 20px;
+    text-align: center;
+    &__item {
+        margin-bottom: 15px;
+        padding-top: 20px;
+        cursor: pointer;
+        max-width: 500px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+    &__spoiler {
+        opacity: 0;
+        height: 0;
+        overflow: hidden;
+        transition: all 0.8s;
+        &.active {
+            height: auto;
+            opacity: 1;
+        }
+    }
+    &__svg {
+        transition: all 0.7s;
+        &.active {
+            transform: rotate(180deg);
+        }
+    }
+}

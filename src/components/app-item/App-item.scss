@@ -1,0 +1,20 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    &__btn {
+        width: 250px;
+        font-size: 18px;
+        background-color: rgb(103, 124, 241);
+    }
+    &__heading {
+        font-size: 30px;
+        font-weight: 700;
+        padding-top: 50px;
+    }
+    &__count {
+        font-size: 20px;
+        text-align: center;
+        color: rgb(115, 128, 0);
+    }
+}
