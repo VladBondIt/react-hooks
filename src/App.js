@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import './App.scss';
 
 
 export default class App extends Component {
@@ -10,7 +10,7 @@ export default class App extends Component {
     }
   }
 
-  addCount() {
+  addCount = () => {
     this.setState(state => ({
       count: ++state.count
     }))
@@ -23,7 +23,7 @@ export default class App extends Component {
       <div className="container">
         <h1>Hello world {name}!</h1>
         <div>{this.state.count}</div>
-        <button className="btn" onClick={this.addCount}>Click me plz</button>
+        <button className="container__btn" onClick={this.addCount}>Click me plz</button>
       </div>
     )
   }
