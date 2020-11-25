@@ -8,14 +8,18 @@ export default class App extends Component {
   constructor() {
     super()
     this.state = {
-      name: "Vlad"
+      name: "Vlad",
+      data: [
+        { label: 'React so hard to learn' },
+        { label: 'This is so unlogical thing' },
+        { label: 'I must try harder' }
+      ]
     }
   }
 
 
-
   render() {
-    const { name } = this.state;
+    const { name, data } = this.state;
 
     return (
       <>
@@ -23,7 +27,7 @@ export default class App extends Component {
           <AppItem name={name} />
         </div>
         <div className="container">
-          <List />
+          <List data={data} />
         </div>
       </>
     )
