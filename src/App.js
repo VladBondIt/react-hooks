@@ -10,21 +10,21 @@ export default class App extends Component {
     }
   }
 
-  // addCount() {
-  //   this.setState(){
-  //     this.count++
-  //   }
-  // }
+  addCount() {
+    this.setState(state => ({
+      count: ++state.count
+    }))
+  }
 
   render() {
     const { name } = this.props;
 
     return (
-      <>
+      <div className="container">
         <h1>Hello world {name}!</h1>
         <div>{this.state.count}</div>
-        <button>Click me plz</button>
-      </>
+        <button className="btn" onClick={this.addCount}>Click me plz</button>
+      </div>
     )
   }
 
