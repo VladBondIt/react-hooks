@@ -1,0 +1,49 @@
+.postlist {
+    max-width: 600px;
+    width: 100%;
+    &__item {
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px;
+        color: white;
+        background: linear-gradient(
+            37deg,
+            rgba(2, 0, 36, 0.8) 0%,
+            rgba(121, 9, 121, 0.9) 48%,
+            rgba(0, 212, 255, 1) 100%
+        );
+    }
+    &__text {
+        font-size: 24px;
+    }
+    &__btns {
+        display: flex;
+    }
+    &__btn {
+        border-radius: 7px;
+        background: black;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &:first-child {
+            margin-right: 10px;
+        }
+    }
+    &__svg-cart {
+        fill: red;
+    }
+    &__svg-star {
+        fill: gold;
+    }
+    &__svg-heart {
+        margin-left: 5px;
+        fill: darkred;
+        visibility: hidden;
+        transition: all 0.6s;
+        transform: translate(-20%, 0);
+    }
+}

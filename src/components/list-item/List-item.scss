@@ -1,23 +1,29 @@
 .list {
-    width: 900px;
     font-size: 20px;
-    text-align: center;
     &__item {
         margin: 15px 0;
         cursor: pointer;
-        max-width: 900px;
+        max-width: 450px;
         width: 100%;
         display: flex;
         justify-content: space-between;
         background-color: rgb(227, 228, 161);
         padding: 12px;
         border-radius: 10px;
+        &.active {
+            color: hotpink;
+            .list__svg {
+                transform: rotate(180deg);
+            }
+        }
     }
     &__spoiler {
         opacity: 0;
         height: 0;
         overflow: hidden;
         transition: all 0.8s;
+        max-width: 450px;
+        padding: 0 20px;
         &.active {
             height: auto;
             opacity: 1;
@@ -25,8 +31,5 @@
     }
     &__svg {
         transition: all 0.7s;
-        &.active {
-            transform: rotate(180deg);
-        }
     }
 }

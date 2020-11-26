@@ -21,7 +21,7 @@ export default class AppItem extends Component {
 
         return (
             <div className="wrapper">
-                <h1 className="wrapper__heading">Hello world {name}!</h1>
+                <h1 className="wrapper__heading">Hello world its {name}!</h1>
                 <div className="wrapper__count">{count}</div>
                 <button className="wrapper__btn" onClick={this.addCount}>Click me plz</button>
             </div>
