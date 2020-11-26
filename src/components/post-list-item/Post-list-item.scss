@@ -17,6 +17,10 @@
     }
     &__text {
         font-size: 24px;
+        cursor: pointer;
+        &.active {
+            color: rgb(194, 207, 118);
+        }
     }
     &__btns {
         display: flex;
@@ -38,12 +42,21 @@
     }
     &__svg-star {
         fill: gold;
+        &.active {
+            fill: gray;
+        }
     }
     &__svg-heart {
         margin-left: 5px;
         fill: darkred;
         visibility: hidden;
         transition: all 0.6s;
-        transform: translate(-20%, 0);
+        opacity: 0;
+        transform: translate(80%, 0);
+        &.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translate(0, 0);
+        }
     }
 }
