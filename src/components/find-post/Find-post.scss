@@ -1,0 +1,38 @@
+.findpost {
+    display: flex;
+    margin-bottom: 20px;
+    &__input {
+        border: 1px solid rgb(53, 51, 51);
+        width: 100%;
+        height: 40px;
+        padding-left: 20px;
+        font-size: 20px;
+    }
+    &__btns {
+        display: flex;
+        margin-left: 10px;
+    }
+    &__btn {
+        width: 70px;
+        &:first-child {
+            width: 50px;
+            margin-right: 10px;
+        }
+        background-image: linear-gradient(
+            90deg,
+            rgba(131, 58, 180, 1) 0%,
+            rgba(178, 28, 28, 1) 50%,
+            rgba(215, 151, 61, 1) 100%
+        );
+        box-shadow: 1px 1px 5px rgb(58, 57, 57);
+        color: honeydew;
+        background-size: 200%;
+        transition: background 1s linear;
+        &:active {
+            transform: translate(1px, 1px);
+        }
+        &:hover {
+            background-position: right;
+        }
+    }
+}
