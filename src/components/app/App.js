@@ -20,7 +20,8 @@ export default class App extends Component {
       { label: 'Odio contentiones sed cu.', id: 'fdg', important: false, like: false },
       { label: 'Nisl omittam complectitur.', id: 'rty', important: false, like: false },
       { label: 'Solum vituperata definitiones.', id: 'uikj', important: false, like: false }
-    ]
+    ],
+    term: ''
   }
 
   deletePost = (id) => {
@@ -36,7 +37,7 @@ export default class App extends Component {
   addPost = (body) => {
     const newPosts = {
       label: body,
-      id: `id ${(Math.random() * 100)}`
+      id: `id ${parseInt(Math.random() * 1000)}`
     }
     this.setState(({ postData }) => {
       const newArr = [...postData, newPosts]
@@ -83,8 +84,23 @@ export default class App extends Component {
     })
   }
 
+  searchPost = (items, term) => {
+    if (term.length === 0) {
+      return items
+    }
+
+    return items.filter(i => i.label.includes(term))
+  }
+
   render() {
-    const { name, data, postData } = this.state;
+    const { name, data, postData, term } = this.state;
+
+    const liked = postData.filter(x => x.like);
+    const allPosts = postData.map(x => x);
+
+    const visiblePosts = this.searchPost(postData, term)
+
+    console.log(visiblePosts);
 
     return (
       <>
@@ -96,8 +112,10 @@ export default class App extends Component {
         <section className="main-content">
           <div className="container">
             <Content
+              liked={liked.length}
+              allPosts={allPosts.length}
               data={data}
-              postData={postData}
+              postData={visiblePosts}
               onDelete={this.deletePost}
               onAdd={this.addPost}
               onImportant={this.onImportant}
@@ -109,6 +127,5 @@ export default class App extends Component {
       </>
     )
   }
-
 }
 
