@@ -14,6 +14,7 @@
     }
     &__btn {
         width: 70px;
+        border-radius: 5px;
         &:first-child {
             width: 50px;
             margin-right: 10px;
@@ -33,6 +34,9 @@
         }
         &:hover {
             background-position: right;
+        }
+        &.active {
+            box-shadow: 0 0 20px rgb(28, 26, 170);
         }
     }
 }

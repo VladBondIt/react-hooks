@@ -8,7 +8,7 @@ import './App.scss';
 export default class App extends Component {
 
   state = {
-    name: "Vlad",
+    name: 'Vlad',
     data: [
       { label: 'React so hard to learn', spoiler: 'Vix paulo sanctus scripserit ex, te iriure insolens voluptatum qui.' },
       { label: 'This is so unlogical thing', spoiler: 'Odio contentiones sed cu, usu commodo prompta prodesset id.' },
@@ -21,7 +21,8 @@ export default class App extends Component {
       { label: 'Nisl omittam complectitur.', id: 'rty', important: false, like: false },
       { label: 'Solum vituperata definitiones.', id: 'uikj', important: false, like: false }
     ],
-    term: ''
+    term: '',
+    filter: 'all'
   }
 
   deletePost = (id) => {
@@ -37,7 +38,7 @@ export default class App extends Component {
   addPost = (body) => {
     const newPosts = {
       label: body,
-      id: `id ${parseInt(Math.random() * 1000)}`
+      id: `id ${(Math.random() * 1000)}`
     }
     this.setState(({ postData }) => {
       const newArr = [...postData, newPosts]
@@ -92,15 +93,29 @@ export default class App extends Component {
     return items.filter(i => i.label.includes(term))
   }
 
+  filterPost = (items, filter) => {
+    if (filter === 'like') {
+      return items.filter(i => i.like)
+    } else {
+      return items
+    }
+  }
+
+  onUpdatePosts = (term) => {
+    this.setState({ term })
+  }
+
+  onFilter = (filter) => {
+    this.setState({ filter })
+  }
+
   render() {
-    const { name, data, postData, term } = this.state;
+    const { name, data, postData, term, filter } = this.state;
 
     const liked = postData.filter(x => x.like);
     const allPosts = postData.map(x => x);
 
-    const visiblePosts = this.searchPost(postData, term)
-
-    console.log(visiblePosts);
+    const visiblePosts = this.filterPost(this.searchPost(postData, term), filter);
 
     return (
       <>
@@ -112,6 +127,8 @@ export default class App extends Component {
         <section className="main-content">
           <div className="container">
             <Content
+              onFilter={this.onFilter}
+              filter={filter}
               liked={liked.length}
               allPosts={allPosts.length}
               data={data}
@@ -120,6 +137,7 @@ export default class App extends Component {
               onAdd={this.addPost}
               onImportant={this.onImportant}
               onLiked={this.onLiked}
+              onUpdatePosts={this.onUpdatePosts}
             />
           </div>
         </section>

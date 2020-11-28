@@ -9,9 +9,21 @@ import './Content.scss';
 export default class Content extends Component {
 
     render() {
-        const { data, postData, onDelete, onAdd, onLiked, onImportant, liked, allPosts } = this.props;
+        const {
+            data,
+            postData,
+            onDelete,
+            onAdd,
+            onLiked,
+            onImportant,
+            liked,
+            allPosts,
+            onUpdatePosts,
+            filter,
+            onFilter
+        } = this.props;
         // Разворачиваем каждый елемент, spred оператором, в массиве дата, каждый елем является объектом
-        const elements = data.map(elem => <ListItem {...elem} key={`label${parseInt(Math.random() * 1000)}`} />);
+        const elements = data.map(elem => <ListItem {...elem} key={`label${(Math.random() * 1000)}`} />);
         const postElements = postData.map(postElem => {
             const { id, ...postElemProps } = postElem;
             return <PostListItem
@@ -32,7 +44,11 @@ export default class Content extends Component {
                         liked={liked}
                         allPosts={allPosts}
                     />
-                    <FindPost />
+                    <FindPost
+                        onFilter={onFilter}
+                        filter={filter}
+                        onUpdatePosts={onUpdatePosts}
+                    />
                     {postElements}
                     <PostAdd
                         onAdd={onAdd}
