@@ -118,7 +118,7 @@ export default class App extends Component {
     const visiblePosts = this.filterPost(this.searchPost(postData, term), filter);
 
     return (
-      <>
+      <div className="main-wrapper">
         <header>
           <div className="container">
             <AppItem name={name} />
@@ -142,7 +142,7 @@ export default class App extends Component {
           </div>
         </section>
         <Footer />
-      </>
+      </div>
     )
   }
 }

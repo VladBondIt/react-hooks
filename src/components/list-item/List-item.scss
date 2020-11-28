@@ -11,7 +11,7 @@
         padding: 12px;
         border-radius: 10px;
         &.active {
-            color: hotpink;
+            color: rgb(66, 116, 17);
             .list__svg {
                 transform: rotate(180deg);
             }
@@ -24,6 +24,7 @@
         transition: all 0.8s;
         max-width: 450px;
         padding: 0 20px;
+        color: lawngreen;
         &.active {
             height: auto;
             opacity: 1;
