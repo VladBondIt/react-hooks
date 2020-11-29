@@ -11,7 +11,7 @@ export default class App extends Component {
     name: 'Vlad',
     data: [
       { label: 'React so hard to learn', spoiler: 'Vix paulo sanctus scripserit ex, te iriure insolens voluptatum qui.' },
-      { label: 'This is so unlogical thing', spoiler: 'Odio contentiones sed cu, usu commodo prompta prodesset id.' },
+      { label: 'It is so interesting', spoiler: 'Odio contentiones sed cu, usu commodo prompta prodesset id.' },
       { label: 'I must try harder', spoiler: 'Nisl omittam complectitur pro an, quem omnes munere id vix.' },
       { label: 'I need a break', spoiler: 'Solum vituperata definitiones te vis, vis alia falli doming ea.' }
     ],
