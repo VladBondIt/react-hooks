@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import './App.css';
+import './React-hooks.scss';
 
 // Хуки юзаються только из функцианальных компонентов,
 // в классовых компонентах хуки вызывают ошибку, также хуки нельзя помещать в циклы, условия
 // и вложенные функции.
-function App() {
-  // useState возвращает массив, деструктуризируем объектб setCount кастомная функция
+function ReactHooks() {
+  // useState возвращает массив, деструктуризируем объект, setCount кастомная функция
   // которая изменяет стейт
   const [count, setCount] = useState(0);
   const [data, refreshData] = useState([{ name: 'Ivan', sex: 'male' }]);
@@ -30,7 +30,7 @@ function App() {
         onClick={() => setCount(count + 1)}>Кликни меня</button>
       {data.map(item => {
         return (
-          <div>Name: {item.name}, sex: {item.sex}</div>
+          <div key={(Math.random() * 1000).toFixed(4)}>Name: {item.name}, sex: {item.sex}</div>
         )
       })}
       <button
@@ -41,4 +41,4 @@ function App() {
   );
 }
 
-export default App;
+export default ReactHooks;
